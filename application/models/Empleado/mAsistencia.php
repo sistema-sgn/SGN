@@ -19,7 +19,6 @@ class mAsistencia extends CI_Model
 		$r=$query->result();
 
 		return $r;
-
 	}
 	//Consultar El estado de los empleados, si es que esta presente o ausente de la empresa
 	public function asistenciasDiariasM($piso)

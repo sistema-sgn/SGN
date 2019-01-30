@@ -34,8 +34,23 @@ class cAsistencia extends CI_Controller
 
   public function asistencias()
   {
+    //Se valida que en el dispositivo donde se va abrir la pagina tenga permisos en la base de datos
     $res= $this->mAsistencia->consultarPermisoEquipo($_SERVER['REMOTE_ADDR']);
-    $this->load->view('asistencia');
+
+    if ($res!='0') {
+     $this->load->view('asistencia');
+    }else{
+      echo "<!DOCTYPE html>
+      <html>
+      <head>
+        <title>Acceso denegado</title>
+        <link href=\"<?php echo base_url();?>assets/login/images/icons/favicon.ico\" rel=\"icon\" type=\"image/png\"/>
+      </head>
+      <body style='padding=5em;'>
+        <h1>No tienes permiso de ingresar a esta pagina, Sorry ;)</h1>
+      </body>
+      </html>";
+    }
   }
 
 //Metodos
@@ -45,9 +60,9 @@ class cAsistencia extends CI_Controller
     $op=$this->input->post('op');
     $fecha=$this->input->post('fec');
 
-     $res= $this->mAsistencia->asistenciaPorEmpleadoM($doc,$op,$fecha);
+    $res= $this->mAsistencia->asistenciaPorEmpleadoM($doc,$op,$fecha);
 
-     echo json_encode($res);
+    echo json_encode($res);
   }
 
   public function horaServidor()

@@ -42,11 +42,14 @@ class cFichaE extends CI_Controller
 	{
 		$ID=$this->input->post('ID');//Ide de la ficha SDG
 		$estados=$this->input->post('estados');
+		$i=0;
+		$cont;
 		// Recorrer los estados y registrarlos o modificarlos.
+		//No se puede permitir registrar más de un estado empresarial vigente...
 		foreach ((Array)$estados as $estado) {
 			// -.-.-
 			$info['IDEstadoE']=$estado['idEstadoE'];//ID del estado.
-			$info['estadoE']=$estado['estadoE'];//Estado empresarial.
+			$info['estadoE']=$estado['estadoE'];//Estado empresarial. 1= Retirado y 2=vigente
 			$info['rotacion']=$estado['idRotacion'];//Indice de rotacion.
 			$info['motivo']=$estado['idMotivo'];//ID del motivo de renuncia.
 			$info['empresa']=$estado['idEmpresa'];//ID de la empresa contratante.
@@ -58,8 +61,26 @@ class cFichaE extends CI_Controller
 			$info['accion']=0;//esta variable me ayuda a saber por que medio van a ser registrado la FSDG por medio de la vista o por medio de un Excel
 			// -.-.-
 			$res= $this->mFichaSDG->registrarModificarEstadoEmpresarialM($ID,$info);
+			//...
+			$cont[$i]=$estado['estadoE'];
+			$i++;
 		}
-		// var_dump($estado['impacto']);
+
+		// Cambiar el estado del empleado a desactivado siempre y cuando todos los estados empresariales sean retirados=1, y si existe a si sea un unico estado que sea vigente entonces automaticamente el estado del empelado va a pasar a activo...
+		$this->load->model('Empleado/mEmpleado');
+		
+		//...
+		if (in_array("2",$cont)) {
+			//Activar el estado del empleado
+			$this->mEmpleado->cambiarEstadoEmpleadoM($ID,1);
+		}else{
+			//Desactivar el estado del empleado
+			$this->mEmpleado->cambiarEstadoEmpleadoM($ID,0);
+		}
+
+		//Cambiar la empresa a la que pertenece el empleado dependiento del ultimo estado empresarial que tenga.
+		$this->mEmpleado->cambiarEmpresaEmpleadoM($ID,$estados[count($estados)-1]['idEmpresa']);
+
 		echo $res;
 	}
 

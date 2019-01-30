@@ -34,7 +34,7 @@
           <div class="box box-primary">
             <div class="box-header">
               <i class="fab fa-algolia"></i>
-              <h3 class="box-title"> Asistencias diaria</h3>
+              <h3 class="box-title"> Asistencias diaria </h3>
                           <!-- Minimizar -->
               <div class="pull-right box-tools">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse">

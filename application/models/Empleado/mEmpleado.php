@@ -128,12 +128,36 @@ public function validarExistenciaContraM($info)
 // Cambia de estado de los empleados y ya no pueden volver a realizar nunguna actividad con los sistemas que interactuan
  public function eliminarEmpleadoM($doc)
  {
- 	$query= $this->db->query("CALL SE_PA_EliminarEmpleado('{$doc}');");
+    $query= $this->db->query("CALL SE_PA_EliminarEmpleado('{$doc}');");
+
+    $r=$query->row();
+
+    return $r->respuesta;
+ }
+ //Funciona de la misma forma pero para otro procesimiento
+ public function cambiarEstadoEmpleadoM($id,$estado)
+ {
+ 	$query= $this->db->query("CALL SE_PA_CambiarEstadoEmpleado({$id}, {$estado});");
 
  	$r=$query->row();
 
+    $this->db->close();
+
  	return $r->respuesta;
  }
+
+ public function cambiarEmpresaEmpleadoM($idF,$idEm)
+ {
+    $query= $this->db->query("CALL SE_PA_CambiarEmpresaEmpleado({$idF}, {$idEm});");
+
+    $r=$query->row();
+
+    $this->db->close();
+
+    return $r->respuesta;
+    // return $idEm;
+ }
+
 // Consulta los roles disponibles para los empleados
 public function consultarRolesM()
 {

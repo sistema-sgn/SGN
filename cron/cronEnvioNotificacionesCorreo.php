@@ -76,7 +76,7 @@
     // echo $tabla;
     foreach ($ususarios as $ususario) {//Hacer validacion de envio diarios de los correo, pendiente
       //...
-      $correos= split(";",$ususario['email']);
+      $correos= explode(";",$ususario['email']);
 
       for($i = 0; $i < count($correos); $i++){
         // Enviar el correo
