@@ -447,6 +447,11 @@ function consultarAsistenciasDia() {
         // console.log(result);
     });
 }
+// Consultar Asistencias del evento de desayuno
+function consultarAsistenciaEventoDia() {
+    
+}
+
 //Se encarga de decir si el empleado esta presente o ausente
 function clasificarStatus(estatus) {
     switch(Number(estatus)){

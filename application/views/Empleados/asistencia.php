@@ -34,7 +34,7 @@
           <div class="box box-primary">
             <div class="box-header">
               <i class="fab fa-algolia"></i>
-              <h3 class="box-title"> Asistencias diaria </h3>
+              <h3 class="box-title"> Asistencias Diaria </h3>
                           <!-- Minimizar -->
               <div class="pull-right box-tools">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -88,6 +88,81 @@
             </div>
           </div>
           <!-- /Div 1-->
+                    <div class="box box-primary">
+                      <div class="box-header">
+                        <i class="fab fa-algolia"></i>
+                        <h3 class="box-title"> Asistencias Diaria Desayuno</h3>
+                                    <!-- Minimizar -->
+                        <div class="pull-right box-tools">
+                          <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Cuerpo -->
+                      <div class="box-body">
+                      <!-- Tabla -->
+                      <!-- Primera fila -->
+          
+                      <!-- Primera fila-->
+                      <!-- Tabla de todos los empelados -->
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <div class="table-responsive" id="tblAsistenciaDesayunoDia">
+                           <!-- Tabla -->
+                          </div>
+                          <div class="col-sm-12">
+                            <!-- <button type="button" class="btn btn-primary" name="Actualizar" id="ActualizarD"><span>Actualizar</span></button> -->
+                          </div>          
+                        </div>              
+                      </div>
+                      <!--  -->
+                      </div>
+                      <!-- /Cuerpo -->
+                      <div class="box-footer">
+                        <div class="pull-right">
+                          <button type="button" class="btn btn-primary" id="" onclick=""><span><i class=""></i></span></button>
+                        </div>
+                      </div>
+                    </div>
+          <!-- /Div 1-->
+          <div class="box box-primary">
+            <div class="box-header">
+              <i class="fab fa-algolia"></i>
+              <h3 class="box-title"> Asistencias Diaria Almuerzo</h3>
+              <!-- Minimizar -->
+              <div class="pull-right box-tools">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Cuerpo -->
+            <div class="box-body">
+            <!-- Tabla -->
+            <!-- Primera fila -->
+          
+            <!-- Primera fila-->
+            <!-- Tabla de todos los empelados -->
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="table-responsive" id="tblAsistenciaAlmuerzoDia">
+                 <!-- Tabla -->
+                </div>
+                <div class="col-sm-12">
+                  <!-- <button type="button" class="btn btn-primary" name="Actualizar" id="ActualizarD"><span>Actualizar</span></button> -->
+                </div>          
+              </div>              
+            </div>
+            <!--  -->
+            </div>
+            <!-- /Cuerpo -->
+            <div class="box-footer">
+
+            </div>
+          </div>
           <!-- Div 2 -->
           <div class="box box-primary">
             <div class="box-header">

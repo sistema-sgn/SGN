@@ -56,6 +56,16 @@ class mAsistencia extends CI_Model
 		// return $r;	
   //   }
 
+    public function consultarAsistenciaEventoDiaM($event)
+    {
+        $query= $this->db->query("CALL SI_PA_ConsultarAsistenciaeventosDia ({$event});;");
+
+        $r=$query->result();
+
+        return $r;
+    }
+
+    //...
     public function consultarPermisoEquipo($ip)
     {
         $query= $this->db->query("SELECT SE_FU_LectorPisoAsistencia('{$ip}') as respuesta;");

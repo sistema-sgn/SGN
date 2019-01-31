@@ -90,6 +90,15 @@ class cAsistencia extends CI_Controller
     echo json_encode($res);
   }
 
+  public function consultarAsistenciaEventoDia()
+  {
+    $event= $this->input->post("event");
+
+    $result=  $this->mAsistencia->consultarAsistenciaEventoDiaM($event);
+
+    echo json_encode($result);
+  }
+
   public function registrarAsistenciaEmpleado()
   {
     $info['contra']=base64_encode($this->input->post('contra'));

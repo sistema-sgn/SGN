@@ -50,6 +50,11 @@
                             Asistencias
                         </span>
                     </div>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <label class="pull-right" style="margin: 7px; font-size: 20px;" id="horaServidor"></label>
+                        </div>
+                    </div>
                     <!-- action="<?php //echo base_url();?>cLogin/iniciarSession1" -->
                     <form class="login100-form validate-form" id="asistir" method="POST">
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Requiere contraseña">
@@ -70,9 +75,6 @@
                             <!-- <input type="submit" name="Enviar" class="btn btn-primary"> -->
                         </div>
                     </form>
-                    <div>
-                        <label class="pull-right" style="margin: 7px; font-size: 20px;" id="horaServidor"></label>
-                    </div>
                 </div>
             </div>
         </div>

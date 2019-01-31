@@ -76,7 +76,7 @@
           <span class="input-group-addon">
             <i class="far fa-envelope"></i>
           </span>
-          <input type="email" name="correo" id="email" class="form-control" placeholder="gestionhumana@colcircuitos.com" maxlength="100">
+          <input type="email" name="correo" id="email" class="form-control" placeholder="gestionhumana@colcircuitos.com" maxlength="200">
         </div>
       </div>
     </div>
@@ -172,7 +172,7 @@
       <div class="col-sm-10">
         <div class="input-group">
           <spa class="input-group-addon"><i class="far fa-envelope"></i></spa>
-          <input type="email" name="correo" id="emailM" class="form-control" placeholder="gestionhumana@colcircuitos.com" maxlength="100">
+          <input type="email" name="correo" id="emailM" class="form-control" placeholder="gestionhumana@colcircuitos.com" maxlength="200">
         </div>
       </div>
     </div>

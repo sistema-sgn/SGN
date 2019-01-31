@@ -803,9 +803,11 @@ class cFichaE extends CI_Controller
 		$empleado;
 		$idFichaSDG=[];
 		$conPersona=0;
+		// $cont=0;
 		// $dato1;
 		// $dato2;
-		$ingreso=0;
+		$dato="";
+		// $ingreso=0;
 		header("Content-Type: text/html;charset=utf-8");
 		if (isset($_FILES["fichasSDG"]["name"])) {
 			$path= $_FILES["fichasSDG"]['tmp_name'];
@@ -814,10 +816,15 @@ class cFichaE extends CI_Controller
 				$highestRow = $workSheet->getHighestRow();
 				$highestColumn= $workSheet->getHighestColumn();
 				// ...
+				// $cont++; 
 				// Validacion del formato del excel
+				$ingreso=1;
+				// $dato= $workSheet->getCellByColumnAndRow(1,2)->getValue();
+				// $dato="Hola mundo";
+				// echo $workSheet->getCellByColumnAndRow(1,2)->getValue();
 				if ($workSheet->getCellByColumnAndRow(1,2)->getValue()=='*Documento:' && $workSheet->getCellByColumnAndRow(182,2)->getValue()=='Observación retiro' && $workSheet->getCellByColumnAndRow(129,2)->getValue()=='Estado Empresarial') {
 						for ($row=3; $row<=$highestRow; $row++) {
-						    $ingreso=1; 
+						    $ingreso=1;
 							#Recorrer Excel
 							// *Salario Basico:
 							if ($workSheet->getCellByColumnAndRow(9,$row)->getValue()!=null || $workSheet->getCellByColumnAndRow(9,$row)->getValue()!='') {//Si este campo de salario base es nulo significa que el empelado no tiene una ficha SDG a registrar
@@ -874,6 +881,7 @@ class cFichaE extends CI_Controller
 									    $estudios['que_estudia']=($workSheet->getCellByColumnAndRow(21,$row)->getValue());
 									    $estudios['Titulo_del_Estudio']=($workSheet->getCellByColumnAndRow(22,$row)->getValue());
 									    $estudios['accion']=1;
+									    // var_dump($estudios);
 									    // Registrar o actualizar estudios
 									    $idFichaSDG['idEstudio']=$this->mFichaSDG->registrarModificarEstudiosM($estudios);
 									    // Informacion laboral
@@ -883,7 +891,11 @@ class cFichaE extends CI_Controller
 									    $laboral['personal_aCargo']=$workSheet->getCellByColumnAndRow(26,$row)->getValue();
 									    //$laboral['fecha_vencimiento_contrato']=($workSheet->getCellByColumnAndRow(27,$row)->getValue()!=''?$this->formatoFecha($workSheet->getCellByColumnAndRow(27,$row)->getValue()):"0000-00-00");
 									    //$laboral['fecha_vencimiento_contrato']=($workSheet->getCellByColumnAndRow(27,$row)->getValue()!=''?date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP($workSheet->getCellByColumnAndRow(27,$row)->getValue())):"0000-00-00");
-									    $laboral['fecha_vencimiento_contrato']=date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP(($workSheet->getCellByColumnAndRow(27,$row)->getValue())));
+									    // $dato=$workSheet->getCellByColumnAndRow(27,$row)->getValue()=="";
+									    // $dato="Hola mundo";
+									    // echo $dato;
+									    //... 
+									    $laboral['fecha_vencimiento_contrato']=($workSheet->getCellByColumnAndRow(27,$row)->getFormattedValue()==''?'':$this->formatoFecha($workSheet->getCellByColumnAndRow(27,$row)->getFormattedValue()));
 									    $laboral['area_trabajo']=$workSheet->getCellByColumnAndRow(28,$row)->getValue();
 									    $laboral['clasificacion_contable']=$workSheet->getCellByColumnAndRow(29,$row)->getValue();
 									    $laboral['documento']=$empleado['documento'];
@@ -893,7 +905,8 @@ class cFichaE extends CI_Controller
 									    // Informacion secundaria basica
 									    $secundaria['estadoCivil']=$workSheet->getCellByColumnAndRow(30,$row)->getValue();
 									    //$secundaria['fecha_Nacimiento']=($workSheet->getCellByColumnAndRow(31,$row)->getValue()!=''?$this->formatoFecha($workSheet->getCellByColumnAndRow(31,$row)->getValue()):"0000-00-00");
-									    $secundaria['fecha_Nacimiento']=date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP(($workSheet->getCellByColumnAndRow(31,$row)->getValue())));
+									    // var_dump($this->formatoFecha($workSheet->getCellByColumnAndRow(31,$row)->getValue()));
+									    $secundaria['fecha_Nacimiento']=($workSheet->getCellByColumnAndRow(31,$row)->getFormattedValue()==''?'':$this->formatoFecha($workSheet->getCellByColumnAndRow(31,$row)->getFormattedValue()));
 									    //var_dump(date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP($secundaria['fecha_Nacimiento'])));
 									    $secundaria['lugar_Nacimiento']=$workSheet->getCellByColumnAndRow(32,$row)->getValue();
 									    $secundaria['tipoSangre']=$workSheet->getCellByColumnAndRow(33,$row)->getValue();
@@ -983,7 +996,7 @@ class cFichaE extends CI_Controller
 									    	$hijos=0;
 									    	for ($i=0; $i < 6; $i++) {
 									    		$hijo['name_hijo']=$workSheet->getCellByColumnAndRow((74+$hijos),$row)->getValue();
-									    		$hijo['fecha_nacimietno_hijo']=date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP(($workSheet->getCellByColumnAndRow((75+$hijos),$row)->getValue())));
+									    		$hijo['fecha_nacimietno_hijo']=($workSheet->getCellByColumnAndRow(75+$hijos,$row)->getFormattedValue()==''?'':$this->formatoFecha($workSheet->getCellByColumnAndRow(75+$hijos,$row)->getFormattedValue()));
 									    		$hijo['vive_empleado_hijo']=($workSheet->getCellByColumnAndRow((76+$hijos),$row)->getValue()=='SI'?1:0);
 									    		// ...
 									    	    if ($hijo['name_hijo']!='' && $hijo['fecha_nacimietno_hijo']!='') {
@@ -1001,7 +1014,7 @@ class cFichaE extends CI_Controller
 									      	$hijos=0;
 									      	for ($i=0; $i < 6; $i++) {
 									      		$hijo['name_hijo']=$workSheet->getCellByColumnAndRow((98+$hijos),$row)->getValue();
-									      		$hijo['fecha_nacimietno_hijo']=date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP(($workSheet->getCellByColumnAndRow((99+$hijos),$row)->getValue())));
+									      		$hijo['fecha_nacimietno_hijo']=($workSheet->getCellByColumnAndRow(100+$hijos,$row)->getFormattedValue()==''?'':$this->formatoFecha($workSheet->getCellByColumnAndRow(100+$hijos,$row)->getFormattedValue()));
 									      		$hijo['vive_empleado_hijo']=($workSheet->getCellByColumnAndRow((100+$hijos),$row)->getValue()=='SI'?1:0);
 									      		// ...
 									      	    if ($hijo['name_hijo']!=null && $hijo['fecha_nacimietno_hijo']!=null) {
@@ -1033,10 +1046,14 @@ class cFichaE extends CI_Controller
 									    $es=0;
 									    $estadoEmp['accion']=1;
 									    // Si la ficha SDG ya esta registrada en el sistema de información no se pueden registrar los estados empresariales
-									    // si la ficha SDG no esta registrada en el sistema de informacion se podra registrar todos lo estados empresariales. 
-									    if ($existeFicha!='') {
+									    // si la ficha SDG no esta registrada en el sistema de informacion se podra registrar todos lo estados empresariales.
+									    // var_dump($existeFicha);
+									    //...
+									    // if ($existeFicha!='') {
 									    	for ($i=0; $i < 5; $i++) { //Pendiente la validacion de campos de los estados empresariales, cuales son obligatorios
 									    		  // Estados empresariales esto se puede hacer en un ciclo for para recorrer los 5 estados de 129 - 156
+									    			// var_dump($workSheet->getCellByColumnAndRow((129+$es),$row)->getValue());
+
 									    			if ($workSheet->getCellByColumnAndRow((129+$es),$row)->getValue()!='') {
 									    				$estadoEmp['idEsatoE']=($workSheet->getCellByColumnAndRow((129+$es),$row)->getValue()=='Vigente'?2:1);
 									    				$estadoEmp['rotacion']=$workSheet->getCellByColumnAndRow((130+$es),$row)->getValue();
@@ -1056,14 +1073,20 @@ class cFichaE extends CI_Controller
 									    				$estadoEmp['empresa']=$workSheet->getCellByColumnAndRow((135+$es),$row)->getValue(); 
 									    				//$estadoEmp['fechaI']=($workSheet->getCellByColumnAndRow((136+$es),$row)->getValue()!=''?$this->formatoFecha($workSheet->getCellByColumnAndRow((136+$es),$row)->getValue()):"0000-00-00");
 														//$estadoEmp['fechaI']=($workSheet->getCellByColumnAndRow((136+$es),$row)->getValue()!=''?date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP($workSheet->getCellByColumnAndRow((136+$es),$row)->getValue())):"0000-00-00");
-														$estadoEmp['fechaI']=($workSheet->getCellByColumnAndRow((136+$es),$row)->getValue()!=""?date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP($workSheet->getCellByColumnAndRow((136+$es),$row)->getValue())):"0000-00-00");
+														// var_dump($workSheet->getCellByColumnAndRow(136+$es,$row)->getFormattedValue());
+														//...
+														$estadoEmp['fechaI']=($workSheet->getCellByColumnAndRow(136+$es,$row)->getFormattedValue()==''?'':$this->formatoFecha($workSheet->getCellByColumnAndRow(136+$es,$row)->getFormattedValue()));
 									    				//$estadoEmp['fechaR']=($workSheet->getCellByColumnAndRow((137+$es),$row)->getValue()!=''?$this->formatoFecha($workSheet->getCellByColumnAndRow((137+$es),$row)->getValue()):"0000-00-00");
-									    				$estadoEmp['fechaR']=($workSheet->getCellByColumnAndRow((137+$es),$row)->getValue()!=""?date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP($workSheet->getCellByColumnAndRow((137+$es),$row)->getValue())):"0000-00-00");
-														//$estadoEmp['fechaR']=date("Y-m-d", PHPExcel_Shared_Date::ExcelToPHP($workSheet->getCellByColumnAndRow((137+$es),$row)->getValue()));
+									    				// var_dump($workSheet->getCellByColumnAndRow(137+$es,$row)->getFormattedValue());
+									    				//...
+									    				$estadoEmp['fechaR']=($workSheet->getCellByColumnAndRow(137+$es,$row)->getFormattedValue()==''?'':$this->formatoFecha($workSheet->getCellByColumnAndRow(137+$es,$row)->getFormattedValue()));
+														//$estadoEmp['fechaR']=date("Y-m-d",PHPExcel_Shared_Date::ExcelToPHP($workSheet->getCellByColumnAndRow((137+$es),$row)->getValue()));
 									    				$estadoEmp['descripcion']=$workSheet->getCellByColumnAndRow((139+$es),$row)->getValue();
 									    				$estadoEmp['estado']=1;
 									    			    // var_dump($estadoEmp);
 									    			    $retirar= $this->mFichaSDG->registrarModificarEstadoEmpresarialM($ficha,$estadoEmp);
+									    			    //
+									    			    // var_dump($retirar);
 									    			    // ...
 									    			    if ($retirar==-1) {
 									    			    	// Salir del ciclo que registra lo estado empresariales
@@ -1072,7 +1095,7 @@ class cFichaE extends CI_Controller
 									    			}
 									    			$es+=11;
 									    	}
-									    }
+									    // }
 									    //var_dump($empleado['nombre_empleado']);
 									//...
 								}else{
@@ -1090,6 +1113,7 @@ class cFichaE extends CI_Controller
 		}
 
 		echo ($ingreso==1?json_encode($idFichaSDG):-1);
+		// echo $dato;
 	}
 
 	public function generarContenidoModeloFamiliares($documento,$nombre,$idParentezco,$celular,$fechaN,$viveE,$cantidad,$dato,$idPersonal)
