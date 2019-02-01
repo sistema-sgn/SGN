@@ -19,10 +19,12 @@
       redirect('cLogin');
     }else{
  		    $info['tipoUser']= number_format($this->session->userdata('tipo_usuario'));
+        $this->load->model('Empleado/FichaSDG/mConfiguracionFicha');
+        $info2['manufacturas']=$this->mConfiguracionFicha->consultarInformacionM(2,9);
         //... 
         $this->load->view('Layout/Header1',$info);
         $this->load->view('Empleados/MenuEmpleados');
-        $this->load->view('Empleados/Empleado');
+        $this->load->view('Empleados/Empleado',$info2);
         $this->load->view('Layout/Footer');
         $this->load->view('clausulas');  
     }  
@@ -94,6 +96,7 @@
                 $datos['piso']=$this->input->post('piso');
                 $datos['fecha_expedicion']=$this->input->post('fechaExpedi');
                 $datos['lugar_expedicion']=$this->input->post('lugarExpedi');
+                $datos['idManufactura']= $this->input->post('manufactura');
                 // $datos['fecha_registro']='(SELECT CURDATE())';
                 $op=$this->input->post('accion');
  		            //Ejecucion de la funcion de registro
@@ -172,6 +175,7 @@
     $objPHPExcel->getActiveSheet()->SetCellValue('K2','Rol');
     $objPHPExcel->getActiveSheet()->SetCellValue('L2','Estado');        
     $objPHPExcel->getActiveSheet()->SetCellValue('M2','Piso');        
+    $objPHPExcel->getActiveSheet()->SetCellValue('N2','Manufactura');        
 
     $i=3;
 
@@ -189,6 +193,7 @@
         $objPHPExcel->getActiveSheet()->SetCellValue('K'.$i,$row->rol);
         $objPHPExcel->getActiveSheet()->SetCellValue('L'.$i,$row->Estado);   
         $objPHPExcel->getActiveSheet()->SetCellValue('M'.$i,$row->piso);   
+        $objPHPExcel->getActiveSheet()->SetCellValue('N'.$i,$row->manufactura);   
        $i++;      
       }
 
@@ -293,7 +298,7 @@
             $i=1;
             for ($row=3; $row <=$highestRow; $row++) { 
               $empleado['documento']= $workSheet->getCellByColumnAndRow(0,$row)->getValue();
-              $empleado['fecha_expedicion']= ($workSheet->getCellByColumnAndRow(1,$row)->getValue()==null?'':$workSheet->getCellByColumnAndRow(1,$row)->getValue());
+              $empleado['fecha_expedicion']= ($workSheet->getCellByColumnAndRow(1,$row)->getFormattedValue()==null?'':$workSheet->getCellByColumnAndRow(1,$row)->getFormattedValue());
               $empleado['lugar_expedicion']= ($workSheet->getCellByColumnAndRow(2,$row)->getValue()==null?'':$workSheet->getCellByColumnAndRow(2,$row)->getValue());
               $empleado['nombre1']= $workSheet->getCellByColumnAndRow(3,$row)->getValue();
               $empleado['nombre2']= $workSheet->getCellByColumnAndRow(4,$row)->getValue();
@@ -314,6 +319,7 @@
               $empleado['estado']= ($estado=='Activo'?1:0);
               $empleado['piso']= $workSheet->getCellByColumnAndRow(12,$row)->getValue();
               $empleado['fecha_registro']= 'CURDATE()';
+              $empleado['idManufactura']= $workSheet->getCellByColumnAndRow(13,$row)->getValue();
               // ...
               // array_push($v,$empleado);
               $this->mEmpleado->registrar_Modificar_EmpleadoM($empleado,0);

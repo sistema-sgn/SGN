@@ -51,27 +51,27 @@
                     <!-- Primer nombre -->
                     <div class="col-sm-2">
                       <label for="txtPrimerNombre">Primer Nombre</label>
-                      <input value="" type="text" name="PrimerNombre" class="form-control" id="txtPrimerNombre" readonly="true" style="text-align: center;">
+                      <input value="" type="text" name="PrimerNombre" class="form-control" id="txtPrimerNombre" readonly="true" style="text-align: center; text-transform: capitalize;">
                     </div>
                     <!-- Segundo Nombre -->
                     <div class="col-sm-2">
                       <label for="txtSegundoNombre">Segundo Nombre</label>
-                      <input value="" type="text" name="SegundoNombre" class="form-control" id="txtSegundoNombre" readonly="true" style="text-align: center;">
+                      <input value="" type="text" name="SegundoNombre" class="form-control" id="txtSegundoNombre" readonly="true" style="text-align: center; text-transform: capitalize;">
                     </div>
                     <!-- Primer apellido -->
                     <div class="col-sm-2">
                       <label for="txtPrimerApellido">Primer Apellido</label>
-                      <input value="" type="text" name="PrimerApellido" class="form-control" id="txtPrimerApellido" readonly="true" style="text-align: center;">
+                      <input value="" type="text" name="PrimerApellido" class="form-control" id="txtPrimerApellido" readonly="true" style="text-align: center; text-transform: capitalize;">
                     </div>
                     <!-- Segundo apellido -->
                     <div class="col-sm-2">
                       <label for="txtSegundopellido">Segundo Apellido</label>
-                      <input value="" type="text" name="SegundoApellido" class="form-control" id="txtSegundopellido" readonly="true" style="text-align: center;">
+                      <input value="" type="text" name="SegundoApellido" class="form-control" id="txtSegundopellido" readonly="true" style="text-align: center; text-transform: capitalize;">
                     </div>
                     <!-- Genero -->
                     <div class="col-sm-2">
                       <label for="genero">Genero</label>
-                      <input value="" type="text" name="Genero" class="form-control" id="genero" readonly="true" style="text-align: center;">
+                      <input value="" type="text" name="Genero" class="form-control" id="genero" readonly="true" style="text-align: center; text-transform: capitalize;">
                     </div>
                   </div>
                 </div>

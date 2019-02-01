@@ -14,6 +14,7 @@ var $contra1 = $('#contraseña1');
 var $contra2 = $('#contraseña2');
 var $correo = $('#correo');
 var $cuerpo = $('#cuerpo');
+var $manufactura = $('#manufactura');
 //Vista secundaria editar
 var $documentoM = $('#documentoM');
 var $fechaExM= $('#fechaEXM');
@@ -28,6 +29,7 @@ var $huella3M = $('#huella3M');
 var $contra1M = $('#contraseña1M');
 var $contra2M = $('#contraseña2M');
 var $correoM = $('#correoM');
+var $manufacturaM = $('#manufacturaM');
 //Se ejecuta cuando carga la pagina
 consultarEmpresas($('#Empresas'));
 $(document).ready(function() {
@@ -245,7 +247,8 @@ function accionARealizar(op) {
                 lugarExpedi: op == 0 ? $lugarEx.val() : $lugarExM.val(),
                 accion: op,
                 rol: String(Number(idRol)),
-                piso: pisos
+                piso: pisos,
+                manufactura: op == 0 ? $('#manufactura option:selected').val():$('#manufacturaM option:selected').val()
             }, function(data) {
                 //Validacion de la respuesta del servidor
                 setTimeout(function () {
@@ -307,10 +310,10 @@ function consultarEmpelados($doc) {
         if ($doc == '') {
             $('#tblTable').empty();
             // html de la Tabla se empelados
-            $('#tblTable').html('<table class="display" id="Empelados">' + '<thead id="cabeza">' + '<th>Documento</th>' + '<th>Nombre</th>' + '<th>Rol</th>' + '<th>Genero</th>' + '<th>Estado</th>' + '<th>Acciones</th>' + '</thead>' + '<tbody id="cuerpo">' + '</tbody>' + '</table>');
+            $('#tblTable').html('<table class="display" id="Empelados">' + '<thead id="cabeza">' + '<th>Documento</th>' + '<th>Nombre</th>' + '<th>Rol</th>' + '<th>Piso</th>' + '<th>Genero</th>' + '<th>Estado</th>' + '<th>Acciones</th>' + '</thead>' + '<tbody id="cuerpo">' + '</tbody>' + '</table>');
             var $cuerpo = $('#cuerpo');
             $.each(result, function(index, row) {
-                $cuerpo.append('<tr>' + '<td>' + row.documento + '</td>' + '<td>' + row.nombre1 + ' ' + row.nombre2 + ' ' + row.apellido1 + ' ' + row.apellido2 + '</td>' + '<td>' + clasificarRol(row.idRol) + '</td>' + '<td>' + calsificarGenero(row.genero) + '</td>' + '<td>' + clasificarEstado(row.estado) + '</td>' + '<td>' + '<button value="' + row.documento + '" onclick="mostrarModal(this.value)"  type="button" class="btn btn-primary tamaño editar"><span><i class="far fa-edit"></i>Editar</span></button></p>' + '<button value="' + row.documento + '" type="button"' + clasificarBoton(row.estado,1,0) + '</span></button>' + (row.idRol==1?(row.asistencia==0?'&nbsp;<button value="' + row.documento + '" type="button" class="btn btn-warning btn-xs" onclick="mostrarModarHorariosConfiguracion(this.value);"><span><i class="far fa-clock"></i> Horario</span></button>':''):'') + '</td>' + '</tr>');
+                $cuerpo.append('<tr>' + '<td>' + row.documento + '</td>' + '<td>' + row.nombre1 + ' ' + row.nombre2 + ' ' + row.apellido1 + ' ' + row.apellido2 + '</td>' + '<td>' + clasificarRol(row.idRol) + '</td>' + '<td>Piso-' + row.piso + '</td>' + '<td>' + calsificarGenero(row.genero) + '</td>' + '<td>' + clasificarEstado(row.estado) + '</td>' + '<td>' + '<button value="' + row.documento + '" onclick="mostrarModal(this.value)"  type="button" class="btn btn-primary tamaño editar"><span><i class="far fa-edit"></i>Editar</span></button></p>' + '<button value="' + row.documento + '" type="button"' + clasificarBoton(row.estado,1,0) + '</span></button>' + (row.idRol==1?(row.asistencia==0?'&nbsp;<button value="' + row.documento + '" type="button" class="btn btn-warning btn-xs" onclick="mostrarModarHorariosConfiguracion(this.value);"><span><i class="far fa-clock"></i> Horario</span></button>':''):'') + '</td>' + '</tr>');
             });
             // Inicializacion de data table
             $('#Empelados').DataTable({
@@ -377,7 +380,10 @@ function consultarEmpelados($doc) {
                 }, 100);
                 //Pisos
                 $("#PisosM option[value="+row.piso+"]").attr('selected', true);
-                // 
+                //Manufactura
+                // debugger;
+                $("#manufacturaM option").removeAttr('selected');
+                $("#manufacturaM option[value="+(row.idManufactura!=undefined?row.idManufactura:0)+"]").attr('selected', true);
             });
         }
     });

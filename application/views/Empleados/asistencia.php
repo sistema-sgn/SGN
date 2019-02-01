@@ -99,21 +99,16 @@
                           </button>
                         </div>
                       </div>
-
                       <!-- Cuerpo -->
                       <div class="box-body">
                       <!-- Tabla -->
-                      <!-- Primera fila -->
-          
-                      <!-- Primera fila-->
-                      <!-- Tabla de todos los empelados -->
                       <div class="col-sm-12">
                         <div class="form-group">
                           <div class="table-responsive" id="tblAsistenciaDesayunoDia">
                            <!-- Tabla -->
                           </div>
                           <div class="col-sm-12">
-                            <!-- <button type="button" class="btn btn-primary" name="Actualizar" id="ActualizarD"><span>Actualizar</span></button> -->
+                            
                           </div>          
                         </div>              
                       </div>
@@ -122,7 +117,7 @@
                       <!-- /Cuerpo -->
                       <div class="box-footer">
                         <div class="pull-right">
-                          <button type="button" class="btn btn-primary" id="" onclick=""><span><i class=""></i></span></button>
+                          <button type="button" class="btn btn-primary" onclick="consultarAsistenciaEventoDia(2);"><span><i class="fas fa-sync-alt"></i></span></button>
                         </div>
                       </div>
                     </div>
@@ -138,21 +133,16 @@
                 </button>
               </div>
             </div>
-
             <!-- Cuerpo -->
             <div class="box-body">
             <!-- Tabla -->
-            <!-- Primera fila -->
-          
-            <!-- Primera fila-->
-            <!-- Tabla de todos los empelados -->
             <div class="col-sm-12">
               <div class="form-group">
                 <div class="table-responsive" id="tblAsistenciaAlmuerzoDia">
                  <!-- Tabla -->
                 </div>
                 <div class="col-sm-12">
-                  <!-- <button type="button" class="btn btn-primary" name="Actualizar" id="ActualizarD"><span>Actualizar</span></button> -->
+                  
                 </div>          
               </div>              
             </div>
@@ -160,7 +150,9 @@
             </div>
             <!-- /Cuerpo -->
             <div class="box-footer">
-
+              <div class="pull-right">
+                <button type="button" class="btn btn-primary" onclick="consultarAsistenciaEventoDia(3);"><span><i class="fas fa-sync-alt"></i></span></button>
+              </div>
             </div>
           </div>
           <!-- Div 2 -->

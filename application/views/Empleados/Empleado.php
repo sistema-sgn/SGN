@@ -30,13 +30,19 @@
               </div>
             </div>
   <style type="text/css">
+
     label strong{
       color: #FD0303;
     }
     .tamaño{
-  font-size: 10px;
-   padding: 3px;
-}
+      font-size: 10px;
+      padding: 3px;
+    }
+
+    .nom>div>input{
+      text-transform: capitalize;
+    }
+    
   </style>
 <!-- Cuerpo -->
 <div class="box-body">
@@ -64,7 +70,7 @@
         </div>
     </div>
     <!-- Nombres -->
-    <div class="form-group">
+    <div class="form-group nom">
         <label class="control-label col-sm-2" for="nombre1"><strong>*</strong>Primer nombre:</label>
         <div class="col-sm-4">
             <input type="text" class="form-control" maxlength="45" onkeyup="validarPorCampo(this.id)" id="nombre1" placeholder="Primer nombre" onkeypress="return soloLetras(event)">
@@ -75,7 +81,7 @@
         </div>
     </div>
     <!-- Apellidos -->
-    <div class="form-group">
+    <div class="form-group nom">
         <label class="control-label col-sm-2" for="apellido1"><strong>*</strong>Primer apellido:</label>
         <div class="col-sm-4">
             <input type="text" class="form-control" maxlength="45" onkeyup="validarPorCampo(this.id)" id="apellido1" placeholder="Primer apellido" onkeypress="return soloLetras(event)">
@@ -155,7 +161,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-2"><strong>*</strong>Piso:</label>
+        <label class="control-label col-sm-2" for="Pisos"><strong>*</strong>Piso:</label>
         <div class="col-sm-3">
           <select id="Pisos" class="form-control" name="cbxPiso">
             <option value="0">Seleccione...</option>
@@ -164,6 +170,17 @@
             <option value="3">Piso 3</option>
             <option value="4">Piso 4</option>
             <option value="5">Piso 5</option>
+          </select>
+        </div>
+        <label class="control-label col-sm-2" for="manufactura">Manufactura:</label>
+        <div class="col-sm-5">
+          <select id="manufactura" class="form-control">
+            <option value="0">Seleccione...</option>
+            <!-- Pendiente por desarrollar -->
+            <?php foreach($manufacturas as $manu) {
+                  echo '<option value="'.$manu->idArea_trabajo.'">'.$manu->area.'</option>';
+                }
+            ?>
           </select>
         </div>
     </div>      
@@ -180,7 +197,7 @@
           </form>
         </div>
     </div>
-<a href="<?php echo base_url(); ?>Empleado/cEmpleado/reporteEmpelados" target="_blank">Empleados Excel...</a>    
+    <a href="<?php echo base_url(); ?>Empleado/cEmpleado/reporteEmpelados" target="_blank">Empleados Excel...</a>    
 </div>
 </div>
 <!-- /Cuerpo -->
@@ -337,7 +354,7 @@
         </div>
     </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="correoM">Email:</label>
+        <label class="control-label col-sm-2" for="correoM"><strong>*</strong>Email:</label>
         <div class="col-sm-10">
           <div class="input-group">
              <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
@@ -363,6 +380,18 @@
             <option value="3">Piso 3</option>
             <option value="4">Piso 4</option>
             <option value="5">Piso 5</option>
+          </select>
+        </div>
+        <!-- ... -->
+        <label class="control-label col-sm-2" for="manufacturaM">Manufactura:</label>
+        <div class="col-sm-5">
+          <select id="manufacturaM" class="form-control">
+            <option value="0">Seleccione...</option>
+            <!-- Pendiente por desarrollar -->
+            <?php foreach($manufacturas as $manu) {
+                  echo '<option value="'.$manu->idArea_trabajo.'">'.$manu->area.'</option>';
+                }
+            ?>
           </select>
         </div>
     </div>         

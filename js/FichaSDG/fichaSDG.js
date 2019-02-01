@@ -712,7 +712,7 @@ function enviarInformacionVentanaFichaSDG(row, exis) {
     $SegundoN.val(row.nombre2);
     $PrimerA.val(row.apellido1); 
     $SegundoA.val(row.apellido2);
-    $generoE.val((row.genero==1?'Masculito':'Femenino'));
+    $generoE.val((row.genero==1?'Masculino':'Femenino'));
     // Validar la existencia de la ficha SDG del empleado
     $btnAccion.val(0);
     $email.val(row.correo);

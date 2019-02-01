@@ -28,6 +28,16 @@ class mEmpleado extends CI_Model
 
             $datos['idEmpresa']=$res->idEmpresa;
         }
+        // ...
+        if (!(is_numeric($datos['idManufactura'])) && ($datos['idManufactura']!=null)) {
+            $query= $this->db->query("SELECT a.idArea_trabajo FROM area_trabajo a WHERE LOWER(a.area) = LOWER('{$datos['idManufactura']}')");
+
+            $res= $query->row();
+
+            $datos['idManufactura']=$res->idArea_trabajo;
+        }else{
+            $datos['idManufactura']=0;
+        }
         // Fecha de ingreso a la empresa
          $query= $this->db->query("SELECT CURDATE() as fechaA;");
 
@@ -63,7 +73,18 @@ class mEmpleado extends CI_Model
             $datos['contraseña']='';
         }
         // ...
- 		$query=$this->db->query("CALL SE_PA_ModificarEmpleados('{$datos['documento']}', '{$datos['nombre1']}', '{$datos['nombre2']}', '{$datos['apellido1']}', '{$datos['apellido2']}', {$datos['genero']}, {$datos['huella1']}, {$datos['huella2']}, {$datos['huella3']}, '{$datos['correo']}', '{$datos['contraseña']}', {$datos['idEmpresa']}, {$datos['idRol']}, '{$datos['piso']}','{$datos['fecha_expedicion']}','{$datos['lugar_expedicion']}');");
+        if (!(is_numeric($datos['idManufactura'])) && ($datos['idManufactura']!=null)) {
+            $query= $this->db->query("SELECT a.idArea_trabajo FROM area_trabajo a WHERE LOWER(a.area) = LOWER('{$datos['idManufactura']}')");
+
+            $res= $query->row();
+
+            $datos['idManufactura']=$res->idArea_trabajo;
+        }else{
+            $datos['idManufactura']=0;
+        }
+        // var_dump($datos['idManufactura']);
+        // ...
+ 		$query=$this->db->query("CALL SE_PA_ModificarEmpleados('{$datos['documento']}', '{$datos['nombre1']}', '{$datos['nombre2']}', '{$datos['apellido1']}', '{$datos['apellido2']}', {$datos['genero']}, {$datos['huella1']}, {$datos['huella2']}, {$datos['huella3']}, '{$datos['correo']}', '{$datos['contraseña']}', {$datos['idEmpresa']}, {$datos['idRol']}, '{$datos['piso']}','{$datos['fecha_expedicion']}','{$datos['lugar_expedicion']}', {$datos['idManufactura']});");
  		$r=$query->row();
         //      
         $this->db->close();

@@ -58,7 +58,7 @@ class mAsistencia extends CI_Model
 
     public function consultarAsistenciaEventoDiaM($event)
     {
-        $query= $this->db->query("CALL SI_PA_ConsultarAsistenciaeventosDia ({$event});;");
+        $query= $this->db->query("CALL SI_PA_ConsultarAsistenciaeventosDia({$event});");
 
         $r=$query->result();
 

@@ -10,8 +10,7 @@ class cMenu extends CI_Controller
 		parent::__construct();
 	}
 // Gestor humano
-	public function index()
-    {   //$this->load->view('login.php');
+	public function index(){ //$this->load->view('login.php');
       if ($this->session->userdata('tipo_usuario')==false) {
          redirect('cLogin');
       }else{
@@ -20,7 +19,7 @@ class cMenu extends CI_Controller
       $this->load->view('Layout/Header1',$info);
       if ($info['tipoUser']==5) {//Gestor Humano
         $this->load->view('Empleados/MenuEmpleados');
-        $this->load->view('Empleados/Contenido');
+        $this->load->view('Empleados/Contenido');//Hacer una forma más optima de colocar los items de menu para las personas...
       }else{//Facilitador
         $this->load->view('Empleados/Facilitador/MenuFacilitador');
         $this->load->view('Empleados/Facilitador/Contenido');

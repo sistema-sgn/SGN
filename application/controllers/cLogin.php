@@ -72,6 +72,10 @@ class cLogin extends CI_Controller
 	   	                            redirect('Empleado/cMenu');					
 	   	                            // window.location.href = base_url()+'Empleado/cMenu';
 	   	                             break;
+	   	                         case 7:
+	   	                         	//Lider de produccion
+	   	                         	  redirect('Empleado/cMenu');
+	   	                         	break;    
 	   	                         // case 6:
 	   	                            //Facilitador
 	   	                            // redirect('Empleado/cMenu');					
