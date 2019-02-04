@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Esta es l avista para los gestores humanos -->
 <html lang="en">
 <head>
   <!-- <meta charset="utf-8"> -->
@@ -8,29 +9,29 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/login/images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../assets/login/images/icons/favicon.ico"/>
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/Librerias/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../assets/Librerias/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../assets/Librerias/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../assets/Librerias/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../assets/Librerias/dist/css/skins/_all-skins.min.css">
   <!-- Morris chart -->
-  <!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/bower_components/morris.js/morris.css"> -->
+  <!-- <link rel="stylesheet" href="<?php?>assets/Librerias/bower_components/morris.js/morris.css"> -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
   <!-- jvectormap -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/bower_components/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="../assets/Librerias/bower_components/jvectormap/jquery-jvectormap.css">
   <!-- Date Picker -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="../assets/Librerias/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="../assets/Librerias/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/Librerias/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="../assets/Librerias/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -41,27 +42,27 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <!-- Mis librerias adicionales================================================================================================================ -->
   <!-- jQuery 3 -->
-  <script src="<?php echo base_url();?>assets/Librerias/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/Librerias/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Table de boostrap-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/Librerias/plugins/DataTables/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="../assets/Librerias/plugins/DataTables/jquery.dataTables.min.css">
   <!-- Data Table -->
-  <script src="<?php echo base_url();?>assets/Librerias/plugins/DataTables/jquery.dataTables.min.js"></script>
+  <script src="../assets/Librerias/plugins/DataTables/jquery.dataTables.min.js"></script>
   <!-- Bootstrap timepiker -->
-  <script src="<?php echo base_url();?>boostrap/timePiker/js/bootstrap-timepicker.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>boostrap/timePiker/css/bootstrap-timepicker.min.css">
+  <script src="../boostrap/timePiker/js/bootstrap-timepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../boostrap/timePiker/css/bootstrap-timepicker.min.css">
   <!-- CSS datapiker -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>boostrap/bootstrapdataPiker/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" type="text/css" href="../boostrap/bootstrapdataPiker/css/bootstrap-datepicker.css">
   <!-- Full Calendar -->
-  <link href='<?php echo base_url();?>assets/fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
-  <link href='<?php echo base_url();?>assets/fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-  <script src='<?php echo base_url();?>assets/fullcalendar-3.9.0/lib/moment.min.js'></script>
-  <script src='<?php echo base_url();?>assets/fullcalendar-3.9.0/fullcalendar.min.js'></script>
+  <link href='../assets/fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
+  <link href='../assets/fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+  <script src='../assets/fullcalendar-3.9.0/lib/moment.min.js'></script>
+  <script src='../assets/fullcalendar-3.9.0/fullcalendar.min.js'></script>
 <!-- select css -->
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/select-Picker/select2.css">
+<link rel="stylesheet" href="../assets/css/select-Picker/select2.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="<?php echo base_url();?>assets/css/select-Picker/select2.js"></script>
+<script src="../assets/css/select-Picker/select2.js"></script>
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script> -->
 
@@ -72,11 +73,11 @@
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo base_url();?>Empleado/cMenu/index" class="logo">
+    <a href="../<?= $path;?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>S</b>GN</span>
+      <span class="logo-mini"><b>S</b>GH</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Empleados SGH</b></span>
+      <span class="logo-lg"><b><?php echo $titulo;?> SGH</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -85,62 +86,45 @@
         <!-- Pendiente encontrar el punto de origen del icono -->
         <span class="fas fa-bars sr-only"></span>
       </a>
-
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Notifications: style can be found in dropdown.less -->
-             <li class="dropdown notifications-menu" id="notificaciones">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="newN1">
-              <i class="far fa-bell"></i>
-              
-            </a>
-            <ul class="dropdown-menu" id="newN2">
-              <!-- Header -->
-              <li id="cabeza">
-                
-              </li>
-              <!-- Fin del header -->
-              <!-- Body -->
-              <li id="cuerpoN">
-               <!-- Cuerpo de notificaionese -->
-                <ul class="menu" id="cuerpoNotificaciones">
-                  <!-- Fila 1 -->
-<!--                   <li>
-                    <a href="#" style="background-color: #F4F4F4;">
-                      <i class="fa fa-user text-red"></i> <label>5 llegadas tarde...</label> 
-                      <small class="label bg-blue" style="float: right;">Nuevo</small>
-                      <br>            
-                      <small style="float: right;"><i class="far fa-clock"></i>5 min</small>      
-                    </a>
-                  </li> -->
-                  <!-- Fila 2 -->
-<!--                   <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li> -->
-                </ul>
+          <?php if ($tipoUser!=3 && $tipoUser!=7) { ?>
+            <li class="dropdown notifications-menu" id="notificaciones">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="newN1">
+                <i class="far fa-bell"></i>
+              </a>
+              <ul class="dropdown-menu" id="newN2">
+                <!-- Header -->
+                <li id="cabeza"></li>
+                <!-- Fin del header -->
+                <!-- Body box-->
+                <li id="cuerpoN">
                 <!-- Cuerpo de notificaionese -->
-              </li>
-              <!-- Fin del body -->
-              <!-- Footer -->
-              <li class="footer"><a href="#">ver todo...</a></li>
-              <!-- Fin del footer -->
-            </ul>
-          </li> 
+                  <ul class="menu" id="cuerpoNotificaciones">
+                    <!-- Cuerpo de notificaionese -->
+                  </ul>
+                </li>
+                <!-- Fin del body box -->
+                <!-- Footer box notificaciones-->
+                <li class="footer"><a href="#">ver todo...</a></li>
+                <!-- Fin del footer box notificacioens-->
+              </ul>
+            </li> 
+          <?php } ?>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url();?>img/Logo.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?= ($tipoUser==6?'Facilitador':'Gestor Humano');?></span>
+              <img src="../img/Logo.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?= $tipoUserName;?></span>
             </a>
             <ul class="dropdown-menu">
                <!-- User image  -->
               <li class="user-header">
-                <img src="<?php echo base_url();?>img/Logo.jpg" class="img-circle" alt="User Image">
+                <img src="../img/Logo.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  <?= ($tipoUser==6?'Facilitador':'Gestor Humano');?>
+                  <?= $tipoUserName; ?>
                   <small>Colcircuitos - 2018</small>
                 </p>
               </li>

@@ -19,18 +19,24 @@ class cHistorial extends CI_Controller
 		  $this->load->model('Empleado/mEmpleado');
 		  // ...
 		  $datos['empleados']=$this->mEmpleado->consultarEmpleadosM(-2);
-		  $info['tipoUser']= number_format($this->session->userdata('tipo_usuario'));
-		  //... 
-		  $this->load->view('Layout/Header1',$info);
 		  //...
-		  if (number_format($this->session->userdata('tipo_usuario'))==6) {//Facilitador
-		  	$this->load->view('Empleados/Facilitador/MenuFacilitador',$datos);
-		  }else{//Gestr humano
-		  	$this->load->view('Empleados/MenuEmpleados',$datos);
+		  $dato['titulo']="Empleados";
+		  $dato['path']="Empleado/cMenu";
+		  $dato['tipoUser']=$this->session->userdata('tipo_usuario');
+		  $dato['tipoUserName']=$this->session->userdata('tipo_usuario_name');
+		  //... 
+		  $this->load->view('Layout/Header1',$dato);
+		  //...
+		  if (number_format($this->session->userdata('tipo_usuario'))==6) {
+		  //Facilitador
+		  	$this->load->view('Layout/MenuLateral',$datos);
+		  }else{
+		  //Gestor humano
+		  	$this->load->view('Layout/MenuLateral',$datos);
 		  }
 		  $this->load->view('Empleados/historial');
 		  $this->load->view('Layout/Footer');
-		  $this->load->view('clausulas'); 	
+		  $this->load->view('Layout/clausulas'); 	
 		}
 	}
 

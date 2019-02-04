@@ -13,13 +13,19 @@ class cAlimentacion extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('tipo_usuario')==false) {
-		  redirect('cLogin');
+		   redirect('cLogin');
 		}else{
-		  $this->load->view('Layout/Header');
-		  $this->load->view('Alimentacion/MenuAlimentacion');
-		  $this->load->view('Alimentacion/Contenido');
-		  $this->load->view('Layout/Footer');
-		  $this->load->view('clausulas');	
+		//...
+		   $dato['titulo']="Alimentacion";
+		   $dato['path']="Alimentacion/cAlimentacion";
+		   $dato['tipoUserName']=$this->session->userdata('tipo_usuario_name');
+		   $dato['tipoUser']=$this->session->userdata('tipo_usuario');
+		//...
+		   $this->load->view('Layout/Header1',$dato);
+		   $this->load->view('Layout/Menulateral');
+		   $this->load->view('Alimentacion/Contenido');
+		   $this->load->view('Layout/Footer');
+		   $this->load->view('Layout/clausulas');
 		}
 	}
 
@@ -28,11 +34,17 @@ class cAlimentacion extends CI_Controller
 		if ($this->session->userdata('tipo_usuario')==false) {
 		  redirect('cLogin');
 		}else{
-		  $this->load->view('Layout/Header');
-		  $this->load->view('Alimentacion/MenuAlimentacion');
+		//...
+		   $dato['titulo']="Alimentacion";
+		   $dato['path']="Alimentacion/cAlimentacion";
+		   $dato['tipoUserName']=$this->session->userdata('tipo_usuario_name');
+		   $dato['tipoUser']=$this->session->userdata('tipo_usuario');
+		//...	
+		  $this->load->view('Layout/Header1',$dato);
+		  $this->load->view('Layout/Menulateral');
 		  $this->load->view('Alimentacion/Proveedor');
 		  $this->load->view('Layout/Footer');
-		  $this->load->view('clausulas');		
+		  $this->load->view('Layout/clausulas');		
 		}
 	}
 
@@ -41,11 +53,17 @@ class cAlimentacion extends CI_Controller
 		if ($this->session->userdata('tipo_usuario')==false) {
 		  redirect('cLogin');
 		}else{
-		  $this->load->view('Layout/Header');
-		  $this->load->view('Alimentacion/MenuAlimentacion');
+		//...
+		   $dato['titulo']="Alimentacion";
+		   $dato['path']="Alimentacion/cAlimentacion";
+		   $dato['tipoUserName']=$this->session->userdata('tipo_usuario_name');
+		   $dato['tipoUser']=$this->session->userdata('tipo_usuario');
+		//...
+		  $this->load->view('Layout/Header1',$dato);
+		  $this->load->view('Layout/MenuLateral');
 		  $this->load->view('Alimentacion/producto');
 		  $this->load->view('Layout/Footer');
-		  $this->load->view('clausulas');	
+		  $this->load->view('Layout/clausulas');	
 		}
 	}
 
@@ -54,11 +72,17 @@ class cAlimentacion extends CI_Controller
 		if ($this->session->userdata('tipo_usuario')==false) {
 		  redirect('cLogin');
 		}else{
-		  $this->load->view('Layout/Header');
-		  $this->load->view('Alimentacion/MenuAlimentacion');
+		//...
+		   $dato['titulo']="Alimentacion";
+		   $dato['path']="Alimentacion/cAlimentacion";
+		   $dato['tipoUserName']=$this->session->userdata('tipo_usuario_name');
+		   $dato['tipoUser']=$this->session->userdata('tipo_usuario');
+		//...
+		  $this->load->view('Layout/Header1',$dato);
+		  $this->load->view('Layout/MenuLateral');
 		  $this->load->view('Alimentacion/configuracion');
 		  $this->load->view('Layout/Footer');
-		  $this->load->view('clausulas');		
+		  $this->load->view('Layout/clausulas');		
 		}
 	}
 }

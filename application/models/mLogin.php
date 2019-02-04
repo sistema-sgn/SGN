@@ -38,7 +38,8 @@ public function iniciarSessionM($datos)
 		$res=$result->respuesta;
 		if ($res!=0) {
 			$id=$result->usuario;
-			$user_session=array('tipo_usuario' => $res, 'idUser'=> $id);	
+			$name=$result->nombre;
+			$user_session=array('tipo_usuario' => $res, 'tipo_usuario_name'=> $name, 'idUser'=> $id);	
 		// 	//======================================================
 			$this->session->set_userdata($user_session);
 

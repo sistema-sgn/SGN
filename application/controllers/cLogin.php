@@ -2,8 +2,8 @@
 /**
 * 
 */
-error_reporting(E_ALL);//Reporting de errores//Eliminar cuando se termine el desarrollo
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);//Reporting de errores//Eliminar cuando se termine el desarrollo
+//ini_set('display_errors', 1);
 
 class cLogin extends CI_Controller
 {
@@ -20,7 +20,7 @@ class cLogin extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		$this->load->view('login.php');
-		$this->load->view('clausulas'); 
+		$this->load->view('Layout/clausulas'); 
 	}
 
 //Metodos======================================

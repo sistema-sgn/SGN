@@ -87,50 +87,50 @@ label strong{
 </style>
 
 <!-- jQuery UI 1.11.4 -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="../assets/Librerias/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../assets/Librerias/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/raphael/raphael.min.js"></script>
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/morris.js/morris.min.js"></script>
+<script src="../assets/Librerias/bower_components/raphael/raphael.min.js"></script>
+<script src="../assets/Librerias/bower_components/morris.js/morris.min.js"></script>
 <!-- Sparkline -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<script src="../assets/Librerias/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
-<script src="<?php echo base_url();?>assets/Librerias/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="<?php echo base_url();?>assets/Librerias/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="../assets/Librerias/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../assets/Librerias/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<script src="../assets/Librerias/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/moment/min/moment.min.js"></script>
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="../assets/Librerias/bower_components/moment/min/moment.min.js"></script>
+<script src="../assets/Librerias/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="../assets/Librerias/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="<?php echo base_url();?>assets/Librerias/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="../assets/Librerias/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../assets/Librerias/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- Chart JS -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
 <!-- <script src="<?php //echo base_url();?>assets/charts/Chart.Bubble.js"></script> -->
 <!-- FastClick -->
-<script src="<?php echo base_url();?>assets/Librerias/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="../assets/Librerias/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="<?php echo base_url();?>assets/Librerias/dist/js/adminlte.min.js"></script>
+<script src="../assets/Librerias/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url();?>assets/Librerias/dist/js/pages/dashboard.js"></script>
+<script src="../assets/Librerias/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url();?>assets/Librerias/dist/js/demo.js"></script>
+<script src="../assets/Librerias/dist/js/demo.js"></script>
 <!-- Mis librerias adicionales ===================================================================================================== -->
-<script src="<?php echo base_url();?>js/general.js"></script>
+<script src="../js/general.js"></script>
 <!--Sweet Alert Library  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
-<script src="<?php echo base_url();?>js/sweetalert2.all.js"></script>
+<script src="../js/sweetalert2.all.js"></script>
 <!-- Font Awesome -->
-<script src="<?php echo base_url();?>img/js/fontawesome-all.js"></script>
+<script src="../img/js/fontawesome-all.js"></script>
 <!--  -->
 <!-- Moment js -->
 <!-- fullCalendar -->
@@ -183,95 +183,95 @@ label strong{
 <!--  -->
 <?php if($this->uri->segment(3)=='proveedor'){ ?>
 <!-- Funcionalidades de la vista proveedores  -->
-<script src="<?php echo base_url();?>js/Alimentacion/Proveedor.js"></script>
+<script src="../js/Alimentacion/Proveedor.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(3)=='Producto'){ ?>
 <!-- Funcionalidades de la vista de productos -->
-<script src="<?php echo base_url();?>js/Alimentacion/Productos.js" ></script>
+<script src="../js/Alimentacion/Productos.js" ></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script> -->
 <?php }?>
 </body>
 
 <?php if($this->uri->segment(3)=='configuracion'){ ?>
 <!-- Funcionalidades de la vista de configuracion (restricciones) -->
-<script src="<?php echo base_url();?>js/Alimentacion/Configuracion.js"></script>
+<script src="../js/Alimentacion/Configuracion.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(3)=='pedidos1'){ ?>
 <!-- Reporte de los pedidos -->
-<script src="<?php echo base_url();?>js/Alimentacion/pedidos1.js"></script>
+<script src="../js/Alimentacion/pedidos1.js"></script>
 <!-- js datapiker -->
-<script src="<?php echo base_url();?>boostrap/bootstrapdataPiker/js/bootstrap-datepicker.min.js"></script>
+<script src="../boostrap/bootstrapdataPiker/js/bootstrap-datepicker.min.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(2)=='cAsistencia'){ ?>
 <!-- Funcionalidades de la vista de asistencia-->
-<script src="<?php echo base_url();?>js/Empleados/Asistencia.js"></script>
+<script src="../js/Empleados/Asistencia.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(2)=='cMenu' && $this->session->userdata('tipo_usuario')==6){ ?>
 <!-- Menu principal de el logion-->
-<script src="<?php echo base_url();?>js/Empleados/Contenido.js"></script>
+<script src="../js/Empleados/Contenido.js"></script>
 <?php }?>
 
-<?php if($this->uri->segment(2)=='cEmpleado'){ ?>
+<?php if($this->uri->segment(2)=='cEmpleado' || $this->session->userdata('tipo_usuario')==7){ ?>
 <!-- Funcionalidades de la vista de empleados-->
-<script src="<?php echo base_url();?>js/Empleados/Empleado.js"></script>
-<script src="<?php echo base_url();?>js/Empleados/empleado_horario.js"></script>
+<script src="../js/Empleados/Empleado.js"></script>
+<script src="../js/Empleados/empleado_horario.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(2)=='cUsuario'){ ?>
 <!-- Funcionalidades de la vista de usuarios-->
-<script src="<?php echo base_url();?>js/Empleados/Usuario.js"></script>
+<script src="../js/Empleados/Usuario.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(2)=='cCalendario'){ ?>
 <!-- Funcionalidades de la vista del calendario-->
-<script src="<?php echo base_url();?>js/Empleados/Calendario.js"></script>
+<script src="../js/Empleados/Calendario.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(2)=='cConfiguracion'){ ?>
 <!-- Funcionalidades de la vista de configuracion-->
-<script src="<?php echo base_url();?>js/Empleados/Configuracion.js"></script>
+<script src="../js/Empleados/Configuracion.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(2)=='cPermiso'){ ?>
 <!-- Funcionalidades de la vista de Permiso admin --> 
-<script src="<?php echo base_url();?>js/Empleados/permisosCompartido.js"></script> 
-<script src="<?php echo base_url();?>js/Empleados/permisoFacilitador.js"></script>
+<script src="../js/Empleados/permisosCompartido.js"></script> 
+<script src="../js/Empleados/permisoFacilitador.js"></script>
 <?php }?>
 
 <?php if($this->uri->segment(2)=='cFichaE'){ ?>
 <!-- Funcionalidades de la vista de Permiso admin -->  
-<script src="<?php echo base_url();?>js/FichaSDG/fichaSDG.js"></script>
+<script src="../js/FichaSDG/fichaSDG.js"></script>
 <?php }?>
 
 <!-- Funcionalidades de la vista de  Incapacidades-->
 <?php if ($this->uri->segment(2)=='cIncapacidades') {?>
-<script src="<?php echo base_url();?>js/Empleados/Incapacidades.js"></script>
+<script src="../js/Empleados/Incapacidades.js"></script>
 <?php } ?>
 
 <!-- Funcionalidades de la vista de  examenes-->
 <?php if ($this->uri->segment(2)=='cExamenes') {?>
-<script src="<?php echo base_url();?>js/FichaSDG/examenesM.js"></script>
+<script src="../js/FichaSDG/examenesM.js"></script>
 <?php } ?>
 
 <!-- Funcionalidades de la vista de  Historial-->
 <?php if ($this->uri->segment(2)=='cHistorial') {?>
-<script src="<?php echo base_url();?>js/Empleados/historial.js"></script>
+<script src="../js/Empleados/historial.js"></script>
 <?php } ?>
 
 <!-- Funcionalidades de la vista Dia Festivos-->
 <?php if ($this->uri->segment(2)=='cDiaFestivo') {?>
-<script src="<?php echo base_url();?>js/Empleados/diasFestivos.js"></script>
+<script src="../js/Empleados/diasFestivos.js"></script>
 <?php } ?>
 
 
 <!-- Funcionalidades de la vista de configuracion>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
 <?php if($this->uri->segment(2)=='cEmpresa'){ ?>
 <!-- Funcionalidades de vista Empresa -->  
-<script src="<?php echo base_url();?>js/FichaSDG/empresa.js"></script>
+<script src="../js/FichaSDG/empresa.js"></script>
 <?php }?>
 
 <?php if ($this->uri->segment(3)=='salario'){ ?>
@@ -347,13 +347,13 @@ label strong{
 <?php if ($this->uri->segment(2)=='cDiagnostico') {?>
 <!--  Funcionalidades de la vista de diagnostico-->
 <!-- <script type="text/javascript">var vista=14;</script> -->
-<script src="<?php echo base_url();?>js/Empleados/Diagnostico.js"></script>
+<script src="../js/Empleados/Diagnostico.js"></script>
 <?php } ?>
 
 
 <?php if($this->uri->segment(2)=='cConfiguracionFicha'){ ?>
 <!-- Funcionalidades de la vista de configuracion-->  
-<script src="<?php echo base_url();?>js/FichaSDG/generalA.js"></script>
+<script src="../js/FichaSDG/generalA.js"></script>
 <?php }?> 
 <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 </body>

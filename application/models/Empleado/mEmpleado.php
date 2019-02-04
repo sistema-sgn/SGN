@@ -11,13 +11,14 @@ class mEmpleado extends CI_Model
 		$this->load->database();
 	}
 // Se encarga de registrar o modificar los datos del empleado dependiendo de los parametros que reciba.
+  // Al registrar los empleados por importacion de documento XLSX se va a tomar en cuenta
  public function registrar_Modificar_EmpleadoM($datos,$op)
  {	
     $query= $this->db->query("SELECT EXISTS(SELECT * FROM empleado e where e.documento='{$datos['documento']}') AS respuesta");
 
     $res= $query->row();
 
- 	if($res->respuesta==0){//Registrar
+ 	// if($res->respuesta==0){//Registrar
  	    mysqli_next_result($this->db->conn_id);//Soluciona el problema con del DB_Driver de codeigneiter.
  	    // El false es para que no escape como un string el query
         // var_dump($datos['idEmpresa']);
@@ -35,62 +36,46 @@ class mEmpleado extends CI_Model
             $res= $query->row();
 
             $datos['idManufactura']=$res->idArea_trabajo;
+        }
+        //...
+        if ($datos['idManufactura']==null) {
+            $datos['idManufactura']=0;   
+        }
+
+        if ($res->respuesta==0) {
+            //Registrar
+                   // Fecha de ingreso a la empresa
+                    $query= $this->db->query("SELECT CURDATE() as fechaA;");
+
+                    $res= $query->row();
+
+                    $datos['fecha_registro']= $res->fechaA;
+                   // ...
+                   // El false es para que no escape como un string el query
+                   $this->db->insert('Empleado',$datos,false);//
+                    //
+                   if($this->db->insert_id()!=0){
+                       $this->db->close();
+                    return false;
+                   }else{
+                       $ususarios=$this->db->query("SELECT u.idUsuario FROM usuario u WHERE (u.idTipo_usuario=5 OR u.idTipo_usuario=6) AND u.estado=1;");
+
+                       foreach ($ususarios->result() as $ususario) {
+                           $this->db->query("CALL PA_SE_GenerarNotificacionEmpleadoNuevo({$ususario->idUsuario});");   
+                       }
+                       $this->db->close();
+                    return true;
+                   }
         }else{
-            $datos['idManufactura']=0;
+            //Modificar
+                   // ...
+                    $query=$this->db->query("CALL SE_PA_ModificarEmpleados('{$datos['documento']}', '{$datos['nombre1']}', '{$datos['nombre2']}', '{$datos['apellido1']}', '{$datos['apellido2']}', {$datos['genero']}, {$datos['huella1']}, {$datos['huella2']}, {$datos['huella3']}, '{$datos['correo']}', '{$datos['contraseña']}', {$datos['idEmpresa']}, {$datos['idRol']}, '{$datos['piso']}','{$datos['fecha_expedicion']}','{$datos['lugar_expedicion']}', {$datos['idManufactura']});");
+                    $r=$query->row();
+                   //      
+                   $this->db->close();
+
+                    return $r->respuesta;
         }
-        // Fecha de ingreso a la empresa
-         $query= $this->db->query("SELECT CURDATE() as fechaA;");
-
-         $res= $query->row();
-
-         $datos['fecha_registro']= $res->fechaA;
-        // ...
-        // El false es para que no escape como un string el query
-        $this->db->insert('Empleado',$datos,false);//
- 	    //
-        if($this->db->insert_id()!=0){
-            $this->db->close();
-        	return false;
-        }else{
-            $ususarios=$this->db->query("SELECT u.idUsuario FROM usuario u WHERE (u.idTipo_usuario=5 OR u.idTipo_usuario=6) AND u.estado=1;");
-
-            foreach ($ususarios->result() as $ususario) {
-                $this->db->query("CALL PA_SE_GenerarNotificacionEmpleadoNuevo({$ususario->idUsuario});");   
-            }
-            $this->db->close();
-        	return true;
-        }
- 	}else{//Modificar
-        // Consulta el id de la empresa
-        if (!(is_numeric($datos['idEmpresa']))) {
-            $query= $this->db->query("SELECT e.idEmpresa FROM empresa e WHERE e.nombre='{$datos['idEmpresa']}'");
-
-            $res= $query->row();
-
-            $datos['idEmpresa']=$res->idEmpresa;
-
-            // La contraseña no se modifica
-            $datos['contraseña']='';
-        }
-        // ...
-        if (!(is_numeric($datos['idManufactura'])) && ($datos['idManufactura']!=null)) {
-            $query= $this->db->query("SELECT a.idArea_trabajo FROM area_trabajo a WHERE LOWER(a.area) = LOWER('{$datos['idManufactura']}')");
-
-            $res= $query->row();
-
-            $datos['idManufactura']=$res->idArea_trabajo;
-        }else{
-            $datos['idManufactura']=0;
-        }
-        // var_dump($datos['idManufactura']);
-        // ...
- 		$query=$this->db->query("CALL SE_PA_ModificarEmpleados('{$datos['documento']}', '{$datos['nombre1']}', '{$datos['nombre2']}', '{$datos['apellido1']}', '{$datos['apellido2']}', {$datos['genero']}, {$datos['huella1']}, {$datos['huella2']}, {$datos['huella3']}, '{$datos['correo']}', '{$datos['contraseña']}', {$datos['idEmpresa']}, {$datos['idRol']}, '{$datos['piso']}','{$datos['fecha_expedicion']}','{$datos['lugar_expedicion']}', {$datos['idManufactura']});");
- 		$r=$query->row();
-        //      
-        $this->db->close();
-
- 		return $r->respuesta;
- 	}
 
  }
 

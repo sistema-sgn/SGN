@@ -18,17 +18,20 @@ class cAsistencia extends CI_Controller
       if ($this->session->userdata('tipo_usuario')==false) {
         redirect('cLogin');
       }else{
-        $info['tipoUser']= number_format($this->session->userdata('tipo_usuario'));
+        $dato['titulo']="Empleados";
+        $dato['path']="Empleado/cMenu";
+        $dato['tipoUser']=$this->session->userdata('tipo_usuario');
+        $dato['tipoUserName']=$this->session->userdata('tipo_usuario_name');
         //... 
-        $this->load->view('Layout/Header1',$info);
-        if ( $info['tipoUser']==5) {//Gestor humano
-          $this->load->view('Empleados/MenuEmpleados');
+        $this->load->view('Layout/Header1',$dato);
+        if ( $dato['tipoUser']==5) {//Gestor humano
+          $this->load->view('Layout/MenuLateral');
         }else{//Facilitador
-          $this->load->view('Empleados/Facilitador/MenuFacilitador');
+          $this->load->view('Layout/MenuLateral');
         }
         $this->load->view('Empleados/asistencia');
         $this->load->view('Layout/Footer');
-        $this->load->view('clausulas'); 
+        $this->load->view('Layout/clausulas'); 
       }
   }
 
@@ -36,7 +39,7 @@ class cAsistencia extends CI_Controller
   {
     //Se valida que en el dispositivo donde se va abrir la pagina tenga permisos en la base de datos
     $res= $this->mAsistencia->consultarPermisoEquipo($_SERVER['REMOTE_ADDR']);
-
+    //...
     if ($res!='0') {
      $this->load->view('asistencia');
     }else{

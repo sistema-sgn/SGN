@@ -5,7 +5,7 @@ $(document).ready(function () {//
 		if($('#user').val()!='' && $('#contraseña').val()!=''){
 		//Ajax
      		$.ajax({
-     			url: baseurl+'cLogin/iniciarSession',
+     			url: '../cLogin/iniciarSession',
      			type: 'POST',
      			dataType: 'json',
      			data: {usu: $('#user').val(),cont: $('#contraseña').val()},
@@ -32,8 +32,12 @@ $(document).ready(function () {//
                          window.location.href = baseurl+'Empleado/cMenu';
                           break;
                       case 6:
-                         //Facilitador				
-                         window.location.href = baseurl+'Empleado/cMenu';//Faltan vistas
+                         //Facilitador        
+                         window.location.href = baseurl+'Empleado/cMenu';
+                          break;
+                      case 7:
+                         //Lider de produccion				
+                         window.location.href = baseurl+'Empleado/cMenu';
                           break;                                                                                                         
                     }
 	    		}else{

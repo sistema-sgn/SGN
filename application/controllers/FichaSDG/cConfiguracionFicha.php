@@ -135,16 +135,19 @@ class cConfiguracionFicha extends CI_Controller
 
 	public function encabezado()
 	{
-		$info['tipoUser']= number_format($this->session->userdata('tipo_usuario'));
+		$dato['titulo']="Empleados";
+		$dato['path']="Empleado/cMenu";
+		$dato['tipoUser']=$this->session->userdata('tipo_usuario');
+		$dato['tipoUserName']=$this->session->userdata('tipo_usuario_name');
 		//... 
-		$this->load->view('Layout/Header1',$info);
-		$this->load->view('Empleados/MenuEmpleados');
+		$this->load->view('Layout/Header1',$dato);
+		$this->load->view('Layout/MenuLateral');
 	}
 
 	public function piepagina()
 	{
 		$this->load->view('Layout/Footer');
-		$this->load->view('clausulas'); 
+		$this->load->view('Layout/clausulas'); 
 	}
 
 //Funciones de las vistas de configuracion de la ficha SDG

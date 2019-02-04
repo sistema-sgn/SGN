@@ -16,7 +16,7 @@ class cPedidos extends CI_Controller
 			redirect('cLogin');
 		}else{
 		    $this->load->view('Alimentacion/Pedidos.php');
-        $this->load->view('clausulas');
+        $this->load->view('Layout/clausulas');
 		    // $this->session->sess_destroy();
 		}
 	}
@@ -27,7 +27,7 @@ class cPedidos extends CI_Controller
 			redirect('cLogin');
 		}else{
 			$this->load->view('Alimentacion/getorPedidos.php');
-      $this->load->view('clausulas'); 
+      $this->load->view('Layout/clausulas'); 
 			 // $this->session->sess_destroy();
 		}
 	}
@@ -36,11 +36,17 @@ class cPedidos extends CI_Controller
 		if ($this->session->userdata('tipo_usuario')==false) {
 			redirect('cLogin');
 		}else{
-		$this->load->view('Layout/Header');
-		$this->load->view('Alimentacion/MenuAlimentacion');
+    //...
+    $dato['titulo']="Alimentacion";
+    $dato['path']="Alimentacion/cAlimentacion";
+    $dato['tipoUserName']=$this->session->userdata('tipo_usuario_name');
+    $dato['tipoUser']=$this->session->userdata('tipo_usuario'); 
+    //... 
+		$this->load->view('Layout/Header1',$dato);
+		$this->load->view('Layout/MenuLateral');
 		$this->load->view('Alimentacion/pedidos1.php');
 		$this->load->view('Layout/Footer');
-    $this->load->view('clausulas');
+    $this->load->view('Layout/clausulas');
 		}
 	}
 //Retorno de vistas
