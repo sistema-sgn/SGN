@@ -62,7 +62,8 @@ $(document).ready(function() {
         })
         .fail(function() {
             $('#formImportarE').children('img').remove();
-            console.log("error");
+            swal('Alerta',"Ocurrio un error al tratar de importar el documento, porfavor revise el formato del xlsx o intentelo nuevamente.",'error',{button:false, timer:2000});
+            // console.log("error");
         });
     });
     //Consultar empleados
@@ -114,7 +115,7 @@ function registrarModificarEmpelados(op) {//(op==0)=Registrar, (op==1)=Modificar
             //Se valida que los campos obligatorios no esten vacios
             //Asignacion de valores al array
             var $inputs;
-            if (op == 0) { //Registrar
+            if (op == 0) {//Registrar
                 // Faltan las huellas
                 $inputs = [$documento, $primerN, $primerA, $('input:radio[name=genero]:checked'), $('#Empresas > option:selected'), $huella1, $huella2, $huella3, $('#Roles > option:selected'), $('#Pisos option:selected'),$fechaEx,$lugarEx,$correo];
             } else { //Modificar
@@ -194,7 +195,7 @@ function accionARealizar(op) {
     var genero;
     var idRol;
     var pisos;
-    if (op == 0) { //Registrar
+    if (op == 0) {//Registrar
         // Genero
         genero = $('input:radio[name=genero]:checked').val();
         // Empresas
@@ -266,7 +267,7 @@ function accionARealizar(op) {
                                 text: op == 0 ? 'El empleado fue registrado correctamente' : 'El empleado fue modificado exitosamente.'
                             });
 
-                        },400);
+                        },600);
                         consultarEmpelados('');
                     } else {
                         swal({
@@ -362,8 +363,6 @@ function consultarEmpelados($doc) {
                 $huella1M.val(row.huella1);
                 $huella2M.val(row.huella2);
                 $huella3M.val(row.huella3);
-                // $contra1M.val(desencryptar(row.contraseña));//Des encryptar
-                // $contra2M.val(desencryptar(row.contraseña));//Des encryptar
                 desencryptar(row.contraseña);
                 $correoM.val(row.correo);
                 if (row.genero == 1) {
@@ -377,7 +376,7 @@ function consultarEmpelados($doc) {
                     $("#EmpresasM option[value=" + row.idEmpresa + "]").attr("selected", true);
                     //Roles
                     $("#RolesM option[value=" + row.idRol + "]").attr("selected", true);
-                }, 100);
+                }, 200);
                 //Pisos
                 $("#PisosM option[value="+row.piso+"]").attr('selected', true);
                 //Manufactura

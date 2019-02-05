@@ -26,6 +26,11 @@ $(document).ready(function() {
     //     console.log('Si ingreso a las notificaciones');
     // });
     cantidadNotificacionesCalendarioDia();
+    //...
+    $('#showAll').click(function(event) {
+        // $('#notificaciones').addClass('active');
+        consultarNotificacionesUsuario();
+    });
 });
 // Metodos
 // Notificaciones de los diferentes tipos de usuario.

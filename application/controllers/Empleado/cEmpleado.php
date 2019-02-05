@@ -101,6 +101,7 @@
                 $datos['fecha_expedicion']=$this->input->post('fechaExpedi');
                 $datos['lugar_expedicion']=$this->input->post('lugarExpedi');
                 $datos['idManufactura']= $this->input->post('manufactura');
+                $datos['estado']= -1;
                 // $datos['fecha_registro']='(SELECT CURDATE())';
                 $op=$this->input->post('accion');
  		            //Ejecucion de la funcion de registro
@@ -316,7 +317,8 @@
               $empleado['huella1']= 0;
               $empleado['huella2']= 0;
               $empleado['huella3']= 0;
-              $empleado['contraseña']= $this->contraseñaAleatoria();
+              // $empleado['contraseña']= $this->contraseñaAleatoria();
+              $empleado['contraseña']="";
               $Rol= $workSheet->getCellByColumnAndRow(10,$row)->getValue();
               $empleado['idRol']= ($Rol=='Administrativo'?2:1);
               $estado= $workSheet->getCellByColumnAndRow(11,$row)->getValue();

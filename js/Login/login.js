@@ -5,7 +5,7 @@ $(document).ready(function () {//
 		if($('#user').val()!='' && $('#contraseña').val()!=''){
 		//Ajax
      		$.ajax({
-     			url: '../cLogin/iniciarSession',
+     			url: baseurl+'cLogin/iniciarSession',
      			type: 'POST',
      			dataType: 'json',
      			data: {usu: $('#user').val(),cont: $('#contraseña').val()},

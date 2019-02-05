@@ -9,29 +9,29 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../assets/login/images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="<?= base_url();?>assets/login/images/icons/favicon.ico"/>
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../assets/Librerias/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../assets/Librerias/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../assets/Librerias/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../assets/Librerias/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../assets/Librerias/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/dist/css/skins/_all-skins.min.css">
   <!-- Morris chart -->
   <!-- <link rel="stylesheet" href="<?php?>assets/Librerias/bower_components/morris.js/morris.css"> -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
   <!-- jvectormap -->
-  <link rel="stylesheet" href="../assets/Librerias/bower_components/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/bower_components/jvectormap/jquery-jvectormap.css">
   <!-- Date Picker -->
-  <link rel="stylesheet" href="../assets/Librerias/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="../assets/Librerias/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="../assets/Librerias/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="<?= base_url();?>assets/Librerias/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -42,27 +42,27 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <!-- Mis librerias adicionales================================================================================================================ -->
   <!-- jQuery 3 -->
-  <script src="../assets/Librerias/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="<?= base_url();?>assets/Librerias/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Table de boostrap-->
-  <link rel="stylesheet" type="text/css" href="../assets/Librerias/plugins/DataTables/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="<?= base_url();?>assets/Librerias/plugins/DataTables/jquery.dataTables.min.css">
   <!-- Data Table -->
-  <script src="../assets/Librerias/plugins/DataTables/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url();?>assets/Librerias/plugins/DataTables/jquery.dataTables.min.js"></script>
   <!-- Bootstrap timepiker -->
-  <script src="../boostrap/timePiker/js/bootstrap-timepicker.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../boostrap/timePiker/css/bootstrap-timepicker.min.css">
+  <script src="<?= base_url();?>boostrap/timePiker/js/bootstrap-timepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?= base_url();?>boostrap/timePiker/css/bootstrap-timepicker.min.css">
   <!-- CSS datapiker -->
-  <link rel="stylesheet" type="text/css" href="../boostrap/bootstrapdataPiker/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" type="text/css" href="<?= base_url();?>boostrap/bootstrapdataPiker/css/bootstrap-datepicker.css">
   <!-- Full Calendar -->
-  <link href='../assets/fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
-  <link href='../assets/fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-  <script src='../assets/fullcalendar-3.9.0/lib/moment.min.js'></script>
-  <script src='../assets/fullcalendar-3.9.0/fullcalendar.min.js'></script>
+  <link href='<?= base_url();?>assets/fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
+  <link href='<?= base_url();?>assets/fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+  <script src='<?= base_url();?>assets/fullcalendar-3.9.0/lib/moment.min.js'></script>
+  <script src='<?= base_url();?>assets/fullcalendar-3.9.0/fullcalendar.min.js'></script>
 <!-- select css -->
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="../assets/css/select-Picker/select2.css">
+<link rel="stylesheet" href="<?= base_url();?>assets/css/select-Picker/select2.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="../assets/css/select-Picker/select2.js"></script>
+<script src="<?= base_url();?>assets/css/select-Picker/select2.js"></script>
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script> -->
 
@@ -107,7 +107,7 @@
                 </li>
                 <!-- Fin del body box -->
                 <!-- Footer box notificaciones-->
-                <li class="footer"><a href="#">ver todo...</a></li>
+                <li class="footer"><a id="showAll">ver todo...</a></li>
                 <!-- Fin del footer box notificacioens-->
               </ul>
             </li> 
