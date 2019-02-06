@@ -1548,7 +1548,7 @@ class cFichaE extends CI_Controller
 				    				$mensaje='Hermano/a';
 				    				break;
 				    			case 4:
-				    				$mensaje='Acompañante';
+				    				$mensaje='Novio/a, esposo/a';
 				    				break;
 				    			case 5:
 				    				$mensaje='Abuelo/a';

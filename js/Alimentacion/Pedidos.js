@@ -1,3 +1,4 @@
+//Todo este código se puede optimizar y experimentar implementando ES6 
 //Variables
 var id;
 var $selecProducto = $('#pro'); //Principal
@@ -495,7 +496,7 @@ function editarPedido() {
             }
         });
     } else {
-        //Mostrar los campos que faltan //Pendiente
+        //Mostrar los campos que faltan de la confirmacion
         camposPendientesConfirmacion();
     }
 }
@@ -900,7 +901,8 @@ function registrarModificarDetallePedido(logitud, idPedidoP) {
                     //Mensaje de confirmacion
                     EstadoIniciarl(); //Lleva a los componenetes de la pagina principal al estado inicial de carga
                     $('#Confirmar').modal('toggle');
-                    swal('Realizado!', 'El pedido fue realizado correctamente.', 'success');
+                    setTimeout(()=>swal('Realizado!', 'El pedido fue realizado correctamente.', 'success'),500)//Funtion de flecha ES6
+                    //... 
                     $user.val('');
                     $pass.val('');
                 }

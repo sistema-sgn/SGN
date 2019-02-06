@@ -1103,7 +1103,7 @@
                               <option value="1">Madre</option>
                               <option value="2">Padre</option>
                               <option value="3">Hermano/a</option>
-                              <option value="4">Acompañante</option>
+                              <option value="4">Novio/a, esposo/a</option>
                               <option value="5">Abuelo/a</option>
                               <option value="6">Tio/a</option>
                               <option value="7">Hijo/a</option>

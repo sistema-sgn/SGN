@@ -393,34 +393,36 @@ class mFichaSDG extends CI_Model
 				// }else{
 				// 	$lb['parentezco']=0;
 				// }
-				switch ($info['parentezco']) {
-					case 'Madre':
+				switch (strtolower($info['parentezco'])) {
+					case 'madre':
 						$lb['parentezco']=1;
 						break;
-					case 'Padre':
-						$lb['parentezco']=2;
-						break;
-					case 'Hermano/a':
-						$lb['parentezco']=3;
-						break;
-					case 'Acompañante':
-						$lb['parentezco']=4;
-						break;
-					case 'Abuelo/a':
-						$lb['parentezco']=5;
-						break;
-					case 'Tio/a':
-						$lb['parentezco']=6;
-						break;
-					case 'Hijo/a':
-						$lb['parentezco']=7;
-						break;
-					case 'Hijastro/a':
-						$lb['parentezco']=8;
-						break;
-					case 'Otro':
-						$lb['parentezco']=9;
-						break;
+							$lb['parentezco']=1;
+							break;
+						case 'padre':
+							$lb['parentezco']=2;
+							break;
+						case 'hermano/a':
+							$lb['parentezco']=3;
+							break;
+						case 'novio/a, esposo/a':
+							$lb['parentezco']=4;
+							break;
+						case 'abuelo/a':
+							$lb['parentezco']=5;
+							break;
+						case 'tio/a':
+							$lb['parentezco']=6;
+							break;
+						case 'hijo/a':
+							$lb['parentezco']=7;
+							break;
+						case 'hijastro/a':
+							$lb['parentezco']=8;
+							break;
+						case 'otro':
+							$lb['parentezco']=9;
+							break;
 					default:
 					   $lb['parentezco']=0;
 						break;	
