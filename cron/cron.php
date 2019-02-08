@@ -26,8 +26,8 @@
   			// Enviar el correo
   			$mail= new PHPMailer();
   			// 
-  			$mail->From ='liliana.restrepo@colcircuitos.com';//aracelly.ospina@colcircuitos.com
-  			$mail->FromName='Liliana Restrepo';//Arracelly Ospina
+  			$mail->From ='auxiliar.facturacion@colcircuitos.com';//aracelly.ospina@colcircuitos.com
+  			$mail->FromName='Auxiliar Facturación';//Arracelly Ospina
   			$mail->AddAddress($row['email']);
   			// 
   			$mail->WordWrap= 50;
@@ -58,8 +58,8 @@
   			$mail->IsSMTP(); 
   			$mail->Host = "ssl://smtp.gmail.com:465";  // Servidor de Salida. 465 es uno de los puertos que usa Google para su servidor SMTP
   			$mail->SMTPAuth = true; 
-  			$mail->Username = "liliana.restrepo@colcircuitos.com";  // Correo Electrónico aracelly.ospina@colcircuitos.com
-  			$mail->Password = "mail.col19"; // Contraseña del correo mail.col2
+  			$mail->Username = "auxiliar.facturacion@colcircuitos.com";  // Correo Electrónico aracelly.ospina@colcircuitos.com, liliana.restrepo@colcircuitos.com
+  			$mail->Password = "Mail.col01+"; // Contraseña del correo mail.col2, 
 
   			if ($mail->Send()) {
   				// Cerrar conexion

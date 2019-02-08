@@ -664,8 +664,8 @@ class cPedidos extends CI_Controller
               // Cuando no existe el envio de los pedidos al proveedor
               $mail = new PHPMailer();
 
-              $mail->From     = 'liliana.restrepo@colcircuitos.com';//'aracelly.ospina@colcircuitos.com'
-              $mail->FromName = 'Liliana Restrepo'; 
+              $mail->From     = 'auxiliar.facturacion@colcircuitos.com';//'aracelly.ospina@colcircuitos.com'
+              $mail->FromName = 'Auxiliar Facturación'; 
               $mail->AddAddress($row->email); // Dirección a la que llegaran los mensajes.
               // 
               // Aquí van los datos que apareceran en el correo que reciba   
@@ -692,8 +692,8 @@ class cPedidos extends CI_Controller
               $mail->IsSMTP(); 
               $mail->Host = "ssl://smtp.gmail.com:465";  // Servidor de Salida. 465 es uno de los puertos que usa Google para su servidor SMTP
               $mail->SMTPAuth = true; 
-              $mail->Username = "liliana.restrepo@colcircuitos.com";  // Correo Electrónico
-              $mail->Password = "mail.col19"; // Contraseña del correo
+              $mail->Username = "auxiliar.facturacion@colcircuitos.com";  // Correo Electrónico
+              $mail->Password = "Mail.col01+"; // Contraseña del correo
               //Enviar el mensaje 1=El mensaje fue enviado, 0=El mensaje no fue enviado, 2=Ya exisia el envio del mensaje.
               if ($mail->Send()){
                // 
